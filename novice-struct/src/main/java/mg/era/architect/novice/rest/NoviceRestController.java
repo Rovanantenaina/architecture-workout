@@ -24,7 +24,7 @@ public class NoviceRestController extends DefalutRestController {
   public ResponseEntity<ResponseDto> saveNovice(@RequestBody NoviceDto novice) {
     String noviceId = this.noviceService.saveNovice(novice);
     if (noviceId != null) {
-      ResponseNoviceDto responseDto = (ResponseNoviceDto) generateOk();
+      ResponseNoviceDto responseDto = generateOk();
       NoviceDto noviceDto = new NoviceDto();
       noviceDto.setId(noviceId);
       responseDto.setNoviceDto(noviceDto);
@@ -37,7 +37,7 @@ public class NoviceRestController extends DefalutRestController {
   public ResponseEntity<ResponseDto> getNovice(@PathVariable String id) {
     NoviceDto novice = this.noviceService.getNovice(id);
     if (novice != null) {
-      ResponseNoviceDto responseDto = (ResponseNoviceDto) generateOk();
+      ResponseNoviceDto responseDto = generateOk();
       responseDto.setNoviceDto(novice);
       return new ResponseEntity<>(responseDto, HttpStatus.OK);
     }

@@ -19,6 +19,6 @@ public class NoviceService {
   }
 
   public NoviceDto getNovice(String id) {
-    return this.noviceRepository.findById(id).get();
+    return this.noviceRepository.findById(id).orElse(new NoviceDto());
   }
 }

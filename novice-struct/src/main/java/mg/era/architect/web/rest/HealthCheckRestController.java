@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HealthCheckRestController {
+public class HealthCheckRestController extends DefalutRestController {
 
   @GetMapping(value = "/health")
   public ResponseEntity<ResponseDto> healthCheck() {
-    return new ResponseEntity<>(new ResponseDto(200, "Ressource works"), HttpStatus.OK);
+    return new ResponseEntity<>(generateOk(), HttpStatus.OK);
   }
 }

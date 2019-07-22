@@ -1,6 +1,7 @@
 package mg.era.architect.web.rest;
 
 import mg.era.architect.novice.model.ResponseDto;
+import mg.era.architect.novice.model.ResponseNoviceDto;
 import org.springframework.http.HttpStatus;
 
 public class DefalutRestController {
@@ -8,7 +9,10 @@ public class DefalutRestController {
     return new ResponseDto(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Une erreur est survenue");
   }
 
-  protected ResponseDto generateOk() {
-    return new ResponseDto(HttpStatus.OK.value(), "Opération éfféctué avec succès");
+  protected ResponseNoviceDto generateOk() {
+    ResponseNoviceDto responseNoviceDto = new ResponseNoviceDto();
+    responseNoviceDto.setCode(HttpStatus.OK.value());
+    responseNoviceDto.setMessage("Opération éfféctuer avec succès");
+    return responseNoviceDto;
   }
 }
